@@ -261,7 +261,7 @@ def get_filtered_products(search_term=None, categories=None, page=1, sort_column
 
 def get_db_connection():
     """Get database connection with optimized settings"""
-    db_path = Path(__file__).parent / "amazon_reviews.db"
+    db_path = Path(__file__).parent / "s3://mgsc410/amazon_reviews.db"
     conn = sqlite3.connect(str(db_path))
     conn.execute('PRAGMA journal_mode=WAL')
     conn.execute('PRAGMA synchronous=NORMAL')
