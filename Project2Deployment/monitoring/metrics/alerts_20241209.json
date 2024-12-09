@@ -1,0 +1,16 @@
+[
+  {
+    "type": "performance",
+    "message": "High response time: 2.01s",
+    "threshold": 2.0,
+    "value": 2.0094854831695557,
+    "timestamp": "2024-12-09T00:15:33.402611"
+  },
+  {
+    "type": "performance",
+    "message": "High response time: 2.28s",
+    "threshold": 2.0,
+    "value": 2.278135061264038,
+    "timestamp": "2024-12-09T11:51:49.986950"
+  }
+]

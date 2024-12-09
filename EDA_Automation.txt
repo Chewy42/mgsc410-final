@@ -1,0 +1,9 @@
+dataset_column_name,dataset_column_type
+properties.purchase_history.1.item.title,STRING
+properties.purchase_history.1.item.category,CATEGORICAL
+properties.purchase_history.1.item.description,STRING
+properties.purchase_history.1.item.price,FLOAT32
+properties.purchase_history.1.review.summary,AI_GENERATED_STRING
+properties.purchase_history.1.review.rating,CATEGORICAL
+properties.purchase_history.1.review.text,STRING
+properties.purchase_history.1.review.timestamp,INT32
