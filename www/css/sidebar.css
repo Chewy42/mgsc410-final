@@ -1,0 +1,95 @@
+/* Sidebar styling */
+#investment_sidebar {
+  background-color: var(--card-background);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 15px;
+  height: calc(100vh - 120px);
+  position: sticky;
+  top: 20px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 90vh;
+  scrollbar-gutter: stable;
+  scroll-behavior: smooth;
+}
+
+#sidebar_title {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #eef2f7;
+}
+
+/* Advanced filters section */
+#advanced_filters_section {
+  margin-top: 15px;
+  padding-top: 1.25rem;
+  border-top: 2px solid #eef2f7;
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+#property_types_title {
+  margin: 0 0 5px 0;
+}
+
+.select-buttons {
+  display: flex;
+  gap: 2px;
+  margin-bottom: 5px;
+}
+
+/* Make selectors more specific to override Shiny defaults */
+button#select_all_btn.btn.action-button,
+button#deselect_all_btn.btn.action-button {
+    font-size: 0.5em !important;  /* Force override with !important */
+    padding: 1px 3px !important;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    cursor: pointer;
+    min-width: 20px;
+    height: 15px;
+    line-height: 1;
+}
+
+button#select_all_btn.btn.action-button:hover,
+button#deselect_all_btn.btn.action-button:hover {
+    background-color: #e0e0e0;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.range-inputs {
+  margin-top: 5px;
+}
+
+.range-input-group {
+  display: flex;
+  gap: 5px;
+}
+
+#price_min_container,
+#price_max_container,
+#sqft_min_container,
+#sqft_max_container {
+  flex: 1;
+}
+
+#location_input,
+#min_bedrooms_input,
+#min_bathrooms_input,
+#year_built_slider,
+#max_hoa_input {
+  /* Add specific styling for inputs if needed */
+}
