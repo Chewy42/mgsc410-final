@@ -2,16 +2,41 @@ import boto3
 import logging
 from botocore.exceptions import ClientError
 from pathlib import Path
+import configparser
+import os
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+def get_aws_credentials():
+    try:
+        # Read credentials from .aws/credentials
+        credentials = configparser.ConfigParser()
+        credentials.read('.aws/credentials')
+        
+        return {
+            'aws_access_key_id': credentials['default']['aws_access_key_id'],
+            'aws_secret_access_key': credentials['default']['aws_secret_access_key']
+        }
+    except Exception as e:
+        logger.error(f"Error reading credentials: {str(e)}")
+        return None
+
 def download_db():
     try:
-        # Configure the AWS SDK to look for credentials in the local .aws directory
-        session = boto3.Session(profile_name='default')
-        s3_client = session.client('s3', region_name='us-west-1')
+        # Get credentials
+        creds = get_aws_credentials()
+        if not creds:
+            return False
+
+        # Create S3 client with explicit credentials
+        s3_client = boto3.client(
+            's3',
+            region_name='us-west-1',
+            aws_access_key_id=creds['aws_access_key_id'],
+            aws_secret_access_key=creds['aws_secret_access_key']
+        )
 
         # Access point ARN
         access_point_arn = "arn:aws:s3:us-west-1:438537853566:accesspoint/mgsc410-access-point"
