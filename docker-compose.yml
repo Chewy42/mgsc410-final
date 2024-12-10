@@ -1,12 +1,18 @@
+# docker-compose.yaml
+#simple python shiny web app
+# copy directory to docker container except venv and any __pycache__
+# make a venv in the container and run pip install -r requirements.txt
+# run app.py
+
 version: '3.8'
 services:
-  web:
-    build: .
+  app:
+    container_name: shiny-python-app
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
-      - "80:5000"  # Maps container port 5000 to host port 80
-    volumes:
-      - .:/app
-      - ./amazon_reviews.db:/app/amazon_reviews.db  # Persist the database
+      - "80:5000"
     environment:
-      - FLASK_ENV=development
-    restart: unless-stopped  # Automatically restart if the container crashes
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
