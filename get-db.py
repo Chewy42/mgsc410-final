@@ -38,14 +38,14 @@ def download_db():
             aws_secret_access_key=creds['aws_secret_access_key']
         )
 
-        # Access point ARN
-        access_point_arn = "arn:aws:s3:us-west-1:438537853566:accesspoint/mgsc410-access-point"
-
-        logger.info("Attempting to download amazon_reviews.db...")
+        # Use bucket name directly
+        bucket_name = "mgsc410"
+        
+        logger.info(f"Attempting to download amazon_reviews.db from bucket {bucket_name}...")
         
         # Download the file
         s3_client.download_file(
-            access_point_arn,
+            bucket_name,
             'amazon_reviews.db',
             'amazon_reviews.db'
         )
@@ -55,6 +55,8 @@ def download_db():
 
     except ClientError as e:
         logger.error(f"Error downloading file: {str(e)}")
+        if e.response['Error']['Code'] == '403':
+            logger.error("Access denied. Please check your IAM permissions for this bucket.")
         return False
     except Exception as e:
         logger.error(f"Unexpected error: {str(e)}")
