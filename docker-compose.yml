@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  web:
+    build: .
+    ports:
+      - "80:5000"  # Maps container port 5000 to host port 80
+    volumes:
+      - .:/app
+      - ./amazon_reviews.db:/app/amazon_reviews.db  # Persist the database
+    environment:
+      - FLASK_ENV=development
+    restart: unless-stopped  # Automatically restart if the container crashes
