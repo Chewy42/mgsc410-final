@@ -876,4 +876,4 @@ def server(input, output, session):
 if __name__ == "__main__":
     initialize_database()
     app = App(app_ui, server, static_assets=Path(__file__).parent / "www")
-    app.run(host="0.0.0.0", port=80)
+    app.run(host="0.0.0.0", port=5000)
