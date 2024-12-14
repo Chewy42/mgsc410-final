@@ -1,0 +1,61 @@
+.input-with-refresh {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.refresh-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.refresh-btn:hover {
+    opacity: 1;
+}
+
+.refresh-btn::before {
+    content: "↻";
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Existing form styles */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.range-inputs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.range-input-group {
+    display: flex;
+    gap: 1rem;
+    flex: 1;
+}
+
+.range-input-group input {
+    width: 100%;
+}
+
+select[multiple] {
+    height: auto;
+    min-height: 120px;
+}

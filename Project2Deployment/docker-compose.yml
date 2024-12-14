@@ -1,0 +1,18 @@
+# docker-compose.yaml
+#simple python shiny web app
+# copy directory to docker container except venv and any __pycache__
+# make a venv in the container and run pip install -r requirements.txt
+# run app.py
+
+version: '3.8'
+services:
+  app:
+    container_name: shiny-python-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
